@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private Collider2D Colliders;
 
     private Animator PlayerAnimation;
-    
+ 
     //FSM
     private enum State { Idle, Running, Jumping, Falling }
 
@@ -23,13 +25,35 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
 
-    //Yuh wah Speed? 
     private float Speed = 5f;
 
     [SerializeField]
 
-    //Jump boy, JUMP!
     private float JumpingForce = 18f;
+
+    [SerializeField]
+
+    private int Coins = 0;
+
+    [SerializeField]
+
+    private TextMeshProUGUI CoinsText;
+
+    [SerializeField]
+
+    private float Timer;
+
+    [SerializeField]
+
+    private TextMeshProUGUI TimerText;
+
+    [SerializeField]
+
+    private int Score = 2000;
+
+    [SerializeField]
+
+    private TextMeshProUGUI ScoreText;
 
     private void Start()
     {
@@ -38,6 +62,9 @@ public class PlayerController : MonoBehaviour
         PlayerAnimation = GetComponent<Animator>();
 
         Colliders = GetComponent<Collider2D>();
+
+        Timer = Time.time;
+
     }
 
     private void Update()
@@ -48,6 +75,39 @@ public class PlayerController : MonoBehaviour
 
         //Set animation based on Enumerator state and thing.
         PlayerAnimation.SetInteger("state", (int)state);
+
+        InGameTimer();
+    }
+
+    private void InGameTimer()
+    {
+        float t = Time.time - Timer;
+
+        string minutes = ((int)t / 60).ToString();
+
+        string seconds = (t % 60).ToString("f0");
+
+        TimerText.text = minutes + ":" + seconds;
+
+        if (t >= 60)
+        {
+            minutes = minutes + 1;
+
+            t -= 60;
+
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Coins")
+        {
+            Destroy(collision.gameObject);
+
+            Coins += 1;
+
+            CoinsText.text = Coins.ToString();
+        }
     }
 
     private void Directions()
