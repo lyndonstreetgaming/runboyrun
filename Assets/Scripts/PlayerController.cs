@@ -110,6 +110,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            Destroy(other.gameObject);
+            Score = Score + 500;
+        }
+    }
+
     private void Directions()
     {
         float HorizontalDirection = Input.GetAxis("Horizontal");
