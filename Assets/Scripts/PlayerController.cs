@@ -12,12 +12,12 @@ public class PlayerController : MonoBehaviour
     private Collider2D Colliders;
 
     private Animator PlayerAnimation;
- 
+
     //FSM
     private enum State { Idle, Running, Jumping, Falling }
 
     private State state = State.Idle;
-   
+
     //All these are inspector Variables
     [SerializeField]
 
@@ -54,6 +54,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
 
     private TextMeshProUGUI ScoreText;
+
+    [SerializeField]
+
+    private float HorizontalInput;
+
+    [SerializeField]
+
+    private float VerticalInput;
+
+    private bool IsClimbing;
+
+    public float Distance;
+
+    public LayerMask Ladder;
 
     private void Start()
     {
@@ -114,8 +128,28 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Destroy(other.gameObject);
-            Score = Score + 500;
+            if(state == State.Falling)
+            {
+                Destroy(other.gameObject);
+
+                Score += 500;
+
+                ScoreText.text = Score.ToString();
+            }
+
+            else
+            {
+                if(other.gameObject.transform.position.x > transform.position.x)
+                {
+                    //Enemy is to my right and I should be damage and move left
+                }
+
+                else
+                {
+                    //Enemy is to my left and I should be damage and move right
+                }
+            }
+           
         }
     }
 
@@ -124,7 +158,6 @@ public class PlayerController : MonoBehaviour
         float HorizontalDirection = Input.GetAxis("Horizontal");
 
         //This is to make it move left.
-
         if (HorizontalDirection < 0)
         {
             RigidBody.velocity = new Vector2(-Speed, RigidBody.velocity.y);
@@ -134,7 +167,6 @@ public class PlayerController : MonoBehaviour
         }
 
         //This is to make it move the opposite of left which is right. 
-
         else if (HorizontalDirection > 0)
         {
             RigidBody.velocity = new Vector2(Speed, RigidBody.velocity.y);
@@ -144,20 +176,21 @@ public class PlayerController : MonoBehaviour
         }
 
         //This is to make it jump.
-
         if (Input.GetButtonDown("Jump") && Colliders.IsTouchingLayers(Ground))
         {
             RigidBody.velocity = new Vector2(RigidBody.velocity.x, JumpingForce);
 
             state = State.Jumping;
         }
+
+
     }
 
     private void AnimationState()
     {
         if (state == State.Jumping)
         {
-            if (RigidBody.velocity.y < .1f )
+            if (RigidBody.velocity.y < .1f)
             {
                 state = State.Falling;
             }
@@ -169,7 +202,7 @@ public class PlayerController : MonoBehaviour
             {
                 state = State.Idle;
             }
-   
+
         }
 
         else if (Mathf.Abs(RigidBody.velocity.x) > 2f)
@@ -185,4 +218,6 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
 }
+
