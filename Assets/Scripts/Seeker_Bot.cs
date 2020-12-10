@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Seeker_Bot : MonoBehaviour
+public class Seeker_Bot : Enemies
 {
     [SerializeField]
 
@@ -28,17 +28,15 @@ public class Seeker_Bot : MonoBehaviour
 
     private Rigidbody2D RigidBody;
 
-    private Animator SeekerBotAnimation;
-
     private bool FacingLeft = true;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+
         Colliders = GetComponent<Collider2D>();
 
         RigidBody = GetComponent<Rigidbody2D>();
-
-        SeekerBotAnimation = GetComponent<Animator>();
     }
 
     private void Update()
@@ -117,15 +115,5 @@ public class Seeker_Bot : MonoBehaviour
                 FacingLeft = true;
             }
         }
-    }
-
-    public void JumpedOn()
-    {
-        SeekerBotAnimation.SetTrigger("Death");
-    }
-
-    private void Death()
-    {
-        Destroy(this.gameObject);
     }
 }

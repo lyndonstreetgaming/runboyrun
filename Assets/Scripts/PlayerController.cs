@@ -121,11 +121,11 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Seeker_Bot seeker_bot = other.gameObject.GetComponent<Seeker_Bot>();
+            Enemies enemies = other.gameObject.GetComponent<Enemies>();
 
             if(state == State.Falling)
             {
-                seeker_bot.JumpedOn();
+                enemies.JumpedOn();
 
                 Jump();
 
