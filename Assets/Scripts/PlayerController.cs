@@ -121,9 +121,11 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
+            Seeker_Bot seeker_bot = other.gameObject.GetComponent<Seeker_Bot>();
+
             if(state == State.Falling)
             {
-                Destroy(other.gameObject);
+                seeker_bot.JumpedOn();
 
                 Jump();
 

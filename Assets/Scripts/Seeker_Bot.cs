@@ -118,4 +118,14 @@ public class Seeker_Bot : MonoBehaviour
             }
         }
     }
+
+    public void JumpedOn()
+    {
+        SeekerBotAnimation.SetTrigger("Death");
+    }
+
+    private void Death()
+    {
+        Destroy(this.gameObject);
+    }
 }
