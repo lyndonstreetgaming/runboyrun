@@ -115,6 +115,15 @@ public class PlayerController : MonoBehaviour
 
             CoinsText.text = Coins.ToString();
         }
+
+        if (collision.tag == "10_Coins")
+        {
+            Destroy(collision.gameObject);
+
+            Coins += 10;
+
+            CoinsText.text = Coins.ToString();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -143,6 +152,7 @@ public class PlayerController : MonoBehaviour
                     //Enemy is to my right and I should be damage and move left
 
                     RigidBody.velocity = new Vector2(-HurtfulForce, RigidBody.velocity.y);
+
                 }
 
 
@@ -151,6 +161,7 @@ public class PlayerController : MonoBehaviour
                     //Enemy is to my left and I should be damage and move right
 
                     RigidBody.velocity = new Vector2(HurtfulForce, RigidBody.velocity.y);
+
                 }
             }
            
