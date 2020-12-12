@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class PlayerController : MonoBehaviour
     private Animator PlayerAnimation;
 
     //FSM
-    private enum State { Idle, Running, Jumping, Falling, Hurt}
+    private enum State { Idle, Running, Jumping, Falling, Hurt }
 
     private State state = State.Idle;
 
@@ -59,6 +60,30 @@ public class PlayerController : MonoBehaviour
 
     private float HurtfulForce = 10f;
 
+    [SerializeField]
+
+    private int Lives;
+
+    [SerializeField]
+
+    private TextMeshProUGUI LivesText;
+
+    [SerializeField]
+
+    private float t;
+
+    [SerializeField]
+
+    private string minutes;
+
+    [SerializeField]
+
+    private string seconds;
+
+    private int interval = 100;
+
+    private int ExtraLifeCounter = 1;
+
     private void Start()
     {
         RigidBody = GetComponent<Rigidbody2D>();
@@ -69,6 +94,8 @@ public class PlayerController : MonoBehaviour
 
         Timer = Time.time;
 
+        LivesText.text = Lives.ToString();
+
     }
 
     private void Update()
@@ -77,22 +104,44 @@ public class PlayerController : MonoBehaviour
         {
             Directions();
         }
- 
+
         AnimationState();
 
         //Set animation based on Enumerator state and thing.
         PlayerAnimation.SetInteger("state", (int)state);
 
         InGameTimer();
+
+        ExtraLives();
+
+    }
+
+    private void ExtraLives()
+    {
+        if (Coins >= interval * ExtraLifeCounter)
+        {
+            ++Lives;
+
+            ++ExtraLifeCounter;
+
+            LivesText.text = Lives.ToString();
+
+            if (Coins >= 99)
+            {
+                Coins -= 99;
+
+                CoinsText.text = Coins.ToString();
+            }
+        }
     }
 
     private void InGameTimer()
-    {
-        float t = Time.time - Timer;
+    { 
+        t = Time.time - Timer;
 
-        string minutes = ((int)t / 60).ToString();
+        minutes = ((int)t / 60).ToString();
 
-        string seconds = (t % 60).ToString("f0");
+        seconds = (t % 60).ToString("f0");
 
         TimerText.text = minutes + ":" + seconds;
 
@@ -124,6 +173,45 @@ public class PlayerController : MonoBehaviour
 
             CoinsText.text = Coins.ToString();
         }
+
+        if (collision.tag == "Lives")
+        {
+                Destroy(collision.gameObject);
+
+                Lives += 1;
+
+                LivesText.text = Lives.ToString();
+            }
+
+        if (collision.tag == "Powerups")
+        {
+            Destroy(collision.gameObject);
+
+            JumpingForce = 25f;
+
+            GetComponent<SpriteRenderer>().color = Color.gray;
+
+            StartCoroutine(ResetPowerup());
+        }
+
+        if (collision.tag == "1000_Points")
+        {
+            Destroy(collision.gameObject);
+
+            Score += 1000;
+
+            ScoreText.text = Score.ToString();
+        }
+
+        if (collision.tag == "5000_Points")
+        {
+            Destroy(collision.gameObject);
+
+            Score += 5000;
+
+            ScoreText.text = Score.ToString();
+        }
+       
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -132,7 +220,7 @@ public class PlayerController : MonoBehaviour
         {
             Enemies enemies = other.gameObject.GetComponent<Enemies>();
 
-            if(state == State.Falling)
+            if (state == State.Falling)
             {
                 enemies.JumpedOn();
 
@@ -146,6 +234,8 @@ public class PlayerController : MonoBehaviour
             else
             {
                 state = State.Hurt;
+
+                ScoreandHealthHandler();
 
                 if (other.gameObject.transform.position.x > transform.position.x)
                 {
@@ -164,7 +254,26 @@ public class PlayerController : MonoBehaviour
 
                 }
             }
-           
+
+        }
+    }
+
+    private void ScoreandHealthHandler()
+    {
+        Score -= 100;
+
+        ScoreText.text = Score.ToString();
+
+        if (Score <= 0)
+        {
+            Lives -= 1;
+
+            LivesText.text = Lives.ToString();
+        } 
+
+        if (Lives <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
@@ -246,5 +355,14 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private IEnumerator ResetPowerup()
+    {
+        yield return new WaitForSeconds(10);
+
+        JumpingForce = 18;
+
+        GetComponent<SpriteRenderer>().color = Color.white;
+
+    }
 }
 
