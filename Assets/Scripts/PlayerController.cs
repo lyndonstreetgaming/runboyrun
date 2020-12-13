@@ -80,6 +80,14 @@ public class PlayerController : MonoBehaviour
 
     private string seconds;
 
+    [SerializeField]
+
+    private AudioSource coins;
+
+    [SerializeField]
+
+    private AudioSource footsteps;
+
     private int interval = 100;
 
     private int ExtraLifeCounter = 1;
@@ -95,6 +103,8 @@ public class PlayerController : MonoBehaviour
         Timer = Time.time;
 
         LivesText.text = Lives.ToString();
+
+        footsteps = GetComponent<AudioSource>();
 
     }
 
@@ -158,6 +168,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag == "Coins")
         {
+            coins.Play();
+
             Destroy(collision.gameObject);
 
             Coins += 1;
@@ -363,6 +375,11 @@ public class PlayerController : MonoBehaviour
 
         GetComponent<SpriteRenderer>().color = Color.white;
 
+    }
+
+    private void Footsteps()
+    {
+        footsteps.Play();
     }
 }
 

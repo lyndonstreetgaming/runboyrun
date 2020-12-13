@@ -8,16 +8,22 @@ public class Enemies : MonoBehaviour
 
     protected Rigidbody2D RigidBody;
 
+    protected AudioSource death;
+
     protected virtual void Start()
     {
         SeekerBotAnimation = GetComponent<Animator>();
 
         RigidBody = GetComponent<Rigidbody2D>();
+
+        death = GetComponent<AudioSource>();
     }
 
     public void JumpedOn()
     {
         SeekerBotAnimation.SetTrigger("Death");
+
+        death.Play();
 
         RigidBody.velocity = new Vector2(0, 0);
     }

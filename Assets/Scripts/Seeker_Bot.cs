@@ -26,7 +26,7 @@ public class Seeker_Bot : Enemies
 
     private Collider2D Colliders;
 
-    private Rigidbody2D RigidBody;
+    private Rigidbody2D rb;
 
     private bool FacingLeft = true;
 
@@ -36,7 +36,7 @@ public class Seeker_Bot : Enemies
 
         Colliders = GetComponent<Collider2D>();
 
-        RigidBody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -44,7 +44,7 @@ public class Seeker_Bot : Enemies
         //Transition from Jump to Fall.
         if (SeekerBotAnimation.GetBool("Jumping"))
         {
-            if (RigidBody.velocity.y < .1)
+            if (rb.velocity.y < .1)
             {
                 SeekerBotAnimation.SetBool("Falling", true);
 
@@ -78,7 +78,7 @@ public class Seeker_Bot : Enemies
                 if (Colliders.IsTouchingLayers(Ground))
                 {
                     //Jump, duh!
-                    RigidBody.velocity = new Vector2(-JumpingLength, JumpingHeight);
+                    rb.velocity = new Vector2(-JumpingLength, JumpingHeight);
 
                     SeekerBotAnimation.SetBool("Jumping", true);
                 }
@@ -104,7 +104,7 @@ public class Seeker_Bot : Enemies
                 if (Colliders.IsTouchingLayers(Ground))
                 {
                     //Jump, duh!
-                    RigidBody.velocity = new Vector2(-JumpingLength, JumpingHeight);
+                    rb.velocity = new Vector2(-JumpingLength, JumpingHeight);
 
                     SeekerBotAnimation.SetBool("Jumping", true);
                 }
