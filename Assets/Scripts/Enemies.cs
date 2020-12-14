@@ -26,6 +26,10 @@ public class Enemies : MonoBehaviour
         death.Play();
 
         RigidBody.velocity = new Vector2(0, 0);
+
+        RigidBody.bodyType = RigidbodyType2D.Kinematic;
+
+        GetComponent<Collider2D>().enabled = false;
     }
 
     private void Death()

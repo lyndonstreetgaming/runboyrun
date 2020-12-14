@@ -15,9 +15,30 @@ public class PlayerController : MonoBehaviour
     private Animator PlayerAnimation;
 
     //FSM
-    private enum State { Idle, Running, Jumping, Falling, Hurt }
+    private enum State { Idle, Running, Jumping, Falling, Hurt, Climbing }
 
     private State state = State.Idle;
+
+    //Ladder Variables
+    [HideInInspector]
+
+    public bool CanClimb = false;
+
+    [HideInInspector]
+
+    public bool BottomLadder = false;
+
+    [HideInInspector]
+
+    public bool TopLadder = false;
+
+    public Ladder ladder;
+
+    private float NaturalGravity;
+
+    [SerializeField]
+
+    float ClimbingSpeed = 3f;
 
     //All these are inspector Variables
     [SerializeField]
@@ -106,10 +127,17 @@ public class PlayerController : MonoBehaviour
 
         footsteps = GetComponent<AudioSource>();
 
+        NaturalGravity = RigidBody.gravityScale;
+
     }
 
     private void Update()
     {
+        if (state == State.Climbing)
+        {
+            Climb();
+        }
+
         if (state != State.Hurt)
         {
             Directions();
@@ -123,6 +151,8 @@ public class PlayerController : MonoBehaviour
         InGameTimer();
 
         ExtraLives();
+
+
 
     }
 
@@ -293,6 +323,17 @@ public class PlayerController : MonoBehaviour
     {
         float HorizontalDirection = Input.GetAxis("Horizontal");
 
+        if (CanClimb && Mathf.Abs(Input.GetAxis("Vertical")) > .1f)
+        {
+            state = State.Climbing;
+
+            RigidBody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+
+            transform.position = new Vector3(ladder.transform.position.x, RigidBody.position.y);
+
+            RigidBody.gravityScale = 0f;
+        }
+
         //This is to make it move left.
         if (HorizontalDirection < 0)
         {
@@ -329,7 +370,12 @@ public class PlayerController : MonoBehaviour
 
     private void AnimationState()
     {
-        if (state == State.Jumping)
+        if (state == State.Climbing)
+        {
+
+        }
+
+        else if (state == State.Jumping)
         {
             if (RigidBody.velocity.y < .1f)
             {
@@ -380,6 +426,41 @@ public class PlayerController : MonoBehaviour
     private void Footsteps()
     {
         footsteps.Play();
+    }
+
+    private void Climb()
+    {
+        if (Input.GetButtonDown("Jump") && Colliders.IsTouchingLayers(Ground))
+        {
+
+            RigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+            CanClimb = false;
+
+            RigidBody.gravityScale = NaturalGravity;
+
+            Jump();
+        }
+
+        float VerticalDirection = Input.GetAxis("Vertical");
+       
+        //Climbing Up
+        if (VerticalDirection > .1f && !TopLadder)
+        {
+            RigidBody.velocity = new Vector2(0f, VerticalDirection * ClimbingSpeed);
+        }
+        
+        //Climbing Down
+        else if(VerticalDirection < -.1f && !BottomLadder){
+
+            RigidBody.velocity = new Vector2(0f, VerticalDirection * ClimbingSpeed);
+        }
+       
+        //Still
+        else
+        {
+
+        }
     }
 }
 
