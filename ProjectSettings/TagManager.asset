@@ -12,6 +12,7 @@ TagManager:
   - Shield
   - 1000_Points
   - 5000_Points
+  - Platform
   layers:
   - Default
   - TransparentFX

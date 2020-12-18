@@ -430,16 +430,19 @@ public class PlayerController : MonoBehaviour
 
     private void Climb()
     {
-        if (Input.GetButtonDown("Jump") && Colliders.IsTouchingLayers(Ground))
+        if (Input.GetButtonDown("Jump"))
         {
-
             RigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
 
             CanClimb = false;
 
             RigidBody.gravityScale = NaturalGravity;
 
+            PlayerAnimation.speed = 1f;
+
             Jump();
+
+            return;
         }
 
         float VerticalDirection = Input.GetAxis("Vertical");
@@ -448,6 +451,8 @@ public class PlayerController : MonoBehaviour
         if (VerticalDirection > .1f && !TopLadder)
         {
             RigidBody.velocity = new Vector2(0f, VerticalDirection * ClimbingSpeed);
+
+            PlayerAnimation.speed = 1f;
         }
         
         //Climbing Down
@@ -459,7 +464,9 @@ public class PlayerController : MonoBehaviour
         //Still
         else
         {
+            PlayerAnimation.speed = 0f;
 
+            RigidBody.velocity = Vector2.zero;
         }
     }
 }
