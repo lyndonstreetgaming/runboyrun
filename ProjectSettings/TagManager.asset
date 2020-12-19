@@ -9,10 +9,9 @@ TagManager:
   - 10_Coins
   - Lives
   - Powerups
-  - Shield
   - 1000_Points
   - 5000_Points
-  - Platform
+  - Trap
   layers:
   - Default
   - TransparentFX

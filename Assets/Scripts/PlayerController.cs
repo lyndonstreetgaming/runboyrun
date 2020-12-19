@@ -253,7 +253,6 @@ public class PlayerController : MonoBehaviour
 
             ScoreText.text = Score.ToString();
         }
-       
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -468,6 +467,11 @@ public class PlayerController : MonoBehaviour
 
             RigidBody.velocity = Vector2.zero;
         }
+    }
+
+    private void Death()
+    {
+        Debug.Log("Working");
     }
 }
 
