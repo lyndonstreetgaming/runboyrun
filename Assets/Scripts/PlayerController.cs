@@ -473,6 +473,18 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Working");
     }
+
+    public void Damage (int damage)
+    {
+        Lives -= damage;
+
+        LivesText.text = Lives.ToString();
+
+        if (Lives <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
 }
 
 
