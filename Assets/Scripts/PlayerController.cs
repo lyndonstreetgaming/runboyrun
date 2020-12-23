@@ -107,6 +107,22 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
 
+    private AudioSource coins_10;
+
+    [SerializeField]
+
+    private AudioSource lives;
+
+    [SerializeField]
+
+    private AudioSource powerups;
+
+    [SerializeField]
+
+    private AudioSource points_1000;
+
+    [SerializeField]
+
     private AudioSource footsteps;
 
     private int interval = 100;
@@ -166,6 +182,8 @@ public class PlayerController : MonoBehaviour
 
             LivesText.text = Lives.ToString();
 
+            lives.Play();
+
             if (Coins >= 99)
             {
                 Coins -= 99;
@@ -176,7 +194,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void InGameTimer()
-    { 
+    {
         t = Time.time - Timer;
 
         minutes = ((int)t / 60).ToString();
@@ -211,6 +229,8 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(collision.gameObject);
 
+            coins_10.Play();
+
             Coins += 10;
 
             CoinsText.text = Coins.ToString();
@@ -218,16 +238,20 @@ public class PlayerController : MonoBehaviour
 
         if (collision.tag == "Lives")
         {
-                Destroy(collision.gameObject);
+            Destroy(collision.gameObject);
 
-                Lives += 1;
+            lives.Play();
 
-                LivesText.text = Lives.ToString();
-            }
+            Lives += 1;
+
+            LivesText.text = Lives.ToString();
+        }
 
         if (collision.tag == "Powerups")
         {
             Destroy(collision.gameObject);
+
+            powerups.Play();
 
             JumpingForce = 25f;
 
@@ -239,6 +263,8 @@ public class PlayerController : MonoBehaviour
         if (collision.tag == "1000_Points")
         {
             Destroy(collision.gameObject);
+
+            points_1000.Play();
 
             Score += 1000;
 
@@ -310,7 +336,7 @@ public class PlayerController : MonoBehaviour
             Lives -= 1;
 
             LivesText.text = Lives.ToString();
-        } 
+        }
 
         if (Lives <= 0)
         {
@@ -445,7 +471,7 @@ public class PlayerController : MonoBehaviour
         }
 
         float VerticalDirection = Input.GetAxis("Vertical");
-       
+
         //Climbing Up
         if (VerticalDirection > .1f && !TopLadder)
         {
@@ -453,13 +479,14 @@ public class PlayerController : MonoBehaviour
 
             PlayerAnimation.speed = 1f;
         }
-        
+
         //Climbing Down
-        else if(VerticalDirection < -.1f && !BottomLadder){
+        else if (VerticalDirection < -.1f && !BottomLadder)
+        {
 
             RigidBody.velocity = new Vector2(0f, VerticalDirection * ClimbingSpeed);
         }
-       
+
         //Still
         else
         {
@@ -474,7 +501,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Working");
     }
 
-    public void Damage (int damage)
+    public void Damage(int damage)
     {
         Lives -= damage;
 
@@ -484,7 +511,24 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
+    }
+
+    public IEnumerator Reaction(float ReactionDuration, float ReactionPower, Vector3 ReactionDirection)
+    {
+        float timer = 0;
+
+        while (ReactionDuration > timer)
+        {
+            timer += Time.deltaTime;
+
+            RigidBody.AddForce(new Vector3(ReactionDirection.x * -30, ReactionDirection.y * ReactionPower, transform.position.z));
+        }
+
+        yield return 0;
     }
 }
+
+
 
 

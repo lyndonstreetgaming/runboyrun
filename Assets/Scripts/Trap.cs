@@ -16,6 +16,8 @@ public class Trap : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Player.Damage(1);
+
+            StartCoroutine(Player.Reaction(0.02f, 350, Player.transform.position));
         }
     }
 }
