@@ -123,6 +123,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
 
+    private AudioSource points_5000;
+
+    [SerializeField]
+
     private AudioSource footsteps;
 
     private int interval = 100;
@@ -275,6 +279,8 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(collision.gameObject);
 
+            points_5000.Play();
+
             Score += 5000;
 
             ScoreText.text = Score.ToString();
@@ -309,6 +315,8 @@ public class PlayerController : MonoBehaviour
                     //Enemy is to my right and I should be damage and move left
 
                     RigidBody.velocity = new Vector2(-HurtfulForce, RigidBody.velocity.y);
+
+
 
                 }
 
