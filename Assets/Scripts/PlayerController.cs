@@ -129,6 +129,10 @@ public class PlayerController : MonoBehaviour
 
     private AudioSource footsteps;
 
+    [SerializeField]
+
+    private AudioSource hurt;
+
     private int interval = 100;
 
     private int ExtraLifeCounter = 1;
@@ -316,8 +320,7 @@ public class PlayerController : MonoBehaviour
 
                     RigidBody.velocity = new Vector2(-HurtfulForce, RigidBody.velocity.y);
 
-
-
+                    hurt.Play();
                 }
 
 
@@ -327,6 +330,7 @@ public class PlayerController : MonoBehaviour
 
                     RigidBody.velocity = new Vector2(HurtfulForce, RigidBody.velocity.y);
 
+                    hurt.Play();
                 }
             }
 

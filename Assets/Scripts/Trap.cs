@@ -6,6 +6,10 @@ public class Trap : MonoBehaviour
 {
     private PlayerController Player;
 
+    [SerializeField]
+
+    private AudioSource trap;
+
     private void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -18,6 +22,9 @@ public class Trap : MonoBehaviour
             Player.Damage(1);
 
             StartCoroutine(Player.Reaction(0.02f, 350, Player.transform.position));
+
+            trap.Play();
+        
         }
     }
 }
