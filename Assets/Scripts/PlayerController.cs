@@ -339,7 +339,7 @@ public class PlayerController : MonoBehaviour
 
     private void ScoreandHealthHandler()
     {
-        Score -= 100;
+        Score -= 300;
 
         ScoreText.text = Score.ToString();
 
@@ -478,6 +478,10 @@ public class PlayerController : MonoBehaviour
             PlayerAnimation.speed = 1f;
 
             Jump();
+
+            Score -= 100;
+
+            ScoreText.text = Score.ToString();
 
             return;
         }
