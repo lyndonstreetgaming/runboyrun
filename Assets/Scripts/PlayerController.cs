@@ -335,11 +335,53 @@ public class PlayerController : MonoBehaviour
             }
 
         }
+
+        if (other.gameObject.tag == "Obstruction")
+        {
+            state = State.Hurt;
+
+            ObstructionScoreandHealthHandler();
+
+            if (other.gameObject.transform.position.x > transform.position.x)
+            {
+                //Enemy is to my right and I should be damage and move left
+
+                RigidBody.velocity = new Vector2(-HurtfulForce, RigidBody.velocity.y);
+
+                hurt.Play();
+            }
+
+            else
+            {
+                //Enemy is to my left and I should be damage and move right
+
+                RigidBody.velocity = new Vector2(HurtfulForce, RigidBody.velocity.y);
+
+                hurt.Play();
+            }
+        }
+    }
+
+    private void ObstructionScoreandHealthHandler()
+    {
+        Score -= 300;
+
+        if (Score <= 0)
+        {
+            Lives -= 1;
+
+            LivesText.text = Lives.ToString();
+        }
+
+        if (Lives <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     private void ScoreandHealthHandler()
     {
-        Score -= 300;
+        Score -= 500;
 
         ScoreText.text = Score.ToString();
 

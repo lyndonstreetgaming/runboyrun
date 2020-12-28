@@ -12,6 +12,7 @@ TagManager:
   - 1000_Points
   - 5000_Points
   - Trap
+  - Obstruction
   layers:
   - Default
   - TransparentFX
