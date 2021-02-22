@@ -9845,6 +9845,86 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player UI
       objectReference: {fileID: 0}
+    - target: {fileID: 1039506395978554774, guid: 2002ff27312cba1488050c4845025fb9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 204.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039506395978554774, guid: 2002ff27312cba1488050c4845025fb9,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 152.96877
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039506395978554774, guid: 2002ff27312cba1488050c4845025fb9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -60.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039506395978554775, guid: 2002ff27312cba1488050c4845025fb9,
+        type: 3}
+      propertyPath: m_margin.z
+      value: 5.3924866
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039506395978554775, guid: 2002ff27312cba1488050c4845025fb9,
+        type: 3}
+      propertyPath: m_margin.x
+      value: -0.0000076293945
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039506395978554775, guid: 2002ff27312cba1488050c4845025fb9,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039506396043556052, guid: 2002ff27312cba1488050c4845025fb9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 168.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039506396043556052, guid: 2002ff27312cba1488050c4845025fb9,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 46.477432
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039506396043556052, guid: 2002ff27312cba1488050c4845025fb9,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039506396043556053, guid: 2002ff27312cba1488050c4845025fb9,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039506396151501416, guid: 2002ff27312cba1488050c4845025fb9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 89.932
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039506396151501416, guid: 2002ff27312cba1488050c4845025fb9,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 111.5276
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039506396151501417, guid: 2002ff27312cba1488050c4845025fb9,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039506396496802227, guid: 2002ff27312cba1488050c4845025fb9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 81.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039506396496802227, guid: 2002ff27312cba1488050c4845025fb9,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 93.911896
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039506396859318693, guid: 2002ff27312cba1488050c4845025fb9,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2002ff27312cba1488050c4845025fb9, type: 3}
 --- !u!1001 &2526345096247603024

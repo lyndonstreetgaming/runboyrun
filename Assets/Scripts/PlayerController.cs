@@ -366,6 +366,8 @@ public class PlayerController : MonoBehaviour
     {
         Score -= 300;
 
+        ScoreText.text = Score.ToString();
+
         if (Score <= 0)
         {
             Lives -= 1;
