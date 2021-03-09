@@ -133,9 +133,19 @@ public class PlayerController : MonoBehaviour
 
     private AudioSource hurt;
 
+    [SerializeField]
+
+    private AudioSource trap;
+
+    [SerializeField]
+
+    private AudioSource checkpoint;
+
     private int interval = 100;
 
     private int ExtraLifeCounter = 1;
+
+    public Vector3 RespawnPoint;
 
     private void Start()
     {
@@ -152,6 +162,8 @@ public class PlayerController : MonoBehaviour
         footsteps = GetComponent<AudioSource>();
 
         NaturalGravity = RigidBody.gravityScale;
+
+        RespawnPoint = transform.position;
 
     }
 
@@ -175,9 +187,6 @@ public class PlayerController : MonoBehaviour
         InGameTimer();
 
         ExtraLives();
-
-
-
     }
 
     private void ExtraLives()
@@ -288,6 +297,22 @@ public class PlayerController : MonoBehaviour
             Score += 5000;
 
             ScoreText.text = Score.ToString();
+        }
+
+        if (collision.tag == "Trap")
+        {
+            transform.position = RespawnPoint;
+
+            Damage(1);
+
+            trap.Play();
+        }
+
+        if (collision.tag == "Checkpoint")
+        {
+            RespawnPoint = collision.transform.position;
+
+            checkpoint.Play();
         }
     }
 
@@ -588,7 +613,5 @@ public class PlayerController : MonoBehaviour
         yield return 0;
     }
 }
-
-
 
 

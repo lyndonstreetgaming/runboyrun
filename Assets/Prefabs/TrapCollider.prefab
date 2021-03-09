@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8372228485113983929}
   - component: {fileID: 8372228485113983934}
-  - component: {fileID: 8372228485113983935}
   m_Layer: 0
   m_Name: TrapCollider
   m_TagString: Untagged
@@ -58,15 +57,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 14.019142, y: 0.6810136}
   m_EdgeRadius: 0
---- !u!114 &8372228485113983935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8372228485113983932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7229cff3b2f93a34784d2832b9837847, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
