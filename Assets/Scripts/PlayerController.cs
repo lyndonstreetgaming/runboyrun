@@ -407,6 +407,10 @@ public class PlayerController : MonoBehaviour
             LivesText.text = Lives.ToString();
 
             transform.position = RespawnPoint;
+
+            Score = 2000;
+
+            ScoreText.text = Score.ToString();
         }
 
         if (Lives <= 0)
@@ -428,6 +432,10 @@ public class PlayerController : MonoBehaviour
             LivesText.text = Lives.ToString();
 
             transform.position = RespawnPoint;
+
+            Score = 2000;
+
+            ScoreText.text = Score.ToString();
         }
 
         if (Lives <= 0)
