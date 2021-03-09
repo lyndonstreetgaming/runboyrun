@@ -141,6 +141,8 @@ public class PlayerController : MonoBehaviour
 
     private AudioSource checkpoint;
 
+    public bool AlreadyPlayed = false;
+
     private int interval = 100;
 
     private int ExtraLifeCounter = 1;
@@ -312,7 +314,12 @@ public class PlayerController : MonoBehaviour
         {
             RespawnPoint = collision.transform.position;
 
-            checkpoint.Play();
+            if (!AlreadyPlayed)
+            {
+                checkpoint.Play();
+
+                AlreadyPlayed = true;
+            }
         }
     }
 
@@ -398,6 +405,8 @@ public class PlayerController : MonoBehaviour
             Lives -= 1;
 
             LivesText.text = Lives.ToString();
+
+            transform.position = RespawnPoint;
         }
 
         if (Lives <= 0)
@@ -417,6 +426,8 @@ public class PlayerController : MonoBehaviour
             Lives -= 1;
 
             LivesText.text = Lives.ToString();
+
+            transform.position = RespawnPoint;
         }
 
         if (Lives <= 0)
@@ -591,6 +602,8 @@ public class PlayerController : MonoBehaviour
         Lives -= damage;
 
         LivesText.text = Lives.ToString();
+
+        transform.position = RespawnPoint;
 
         if (Lives <= 0)
         {
