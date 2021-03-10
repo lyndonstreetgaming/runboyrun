@@ -13,8 +13,6 @@ public class CheckpointController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             CheckpointAnimationController.SetBool("CheckpointTriggered", true);
-        }
-
-        
+        }     
     }
 }

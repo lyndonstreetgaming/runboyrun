@@ -149,6 +149,8 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 RespawnPoint;
 
+    public Level_Manager GameLevelManager;
+
     private void Start()
     {
         RigidBody = GetComponent<Rigidbody2D>();
@@ -166,6 +168,8 @@ public class PlayerController : MonoBehaviour
         NaturalGravity = RigidBody.gravityScale;
 
         RespawnPoint = transform.position;
+
+        GameLevelManager = FindObjectOfType<Level_Manager>();
 
     }
 
@@ -216,18 +220,17 @@ public class PlayerController : MonoBehaviour
     {
         t = Time.time - Timer;
 
-        minutes = ((int)t / 60).ToString();
+        minutes = ((int)t / 60).ToString("0");
 
-        seconds = (t % 60).ToString("f0");
+        seconds = (t % 60).ToString("00");
 
         TimerText.text = minutes + ":" + seconds;
 
-        if (t >= 60)
+        if (t >= 59)
         {
             minutes = minutes + 1;
 
-            t -= 60;
-
+            t -= 59;
         }
     }
 
@@ -303,7 +306,7 @@ public class PlayerController : MonoBehaviour
 
         if (collision.tag == "Trap")
         {
-            transform.position = RespawnPoint;
+            GameLevelManager.Respawn();
 
             Damage(1);
 
@@ -319,7 +322,7 @@ public class PlayerController : MonoBehaviour
                 checkpoint.Play();
 
                 AlreadyPlayed = true;
-            }
+            }           
         }
     }
 
