@@ -7,6 +7,10 @@ public class Level_Manager : MonoBehaviour
     public float RespawnDelay;
 
     public PlayerController GamePlayer;
+
+    [SerializeField]
+
+    private AudioSource Trap;
    
     void Start()
     {
@@ -16,6 +20,10 @@ public class Level_Manager : MonoBehaviour
     public void Respawn()
     {
         StartCoroutine("RespawnCoroutine");
+
+        GamePlayer.Damage(1);
+
+        Trap.Play();
 
     }
 

@@ -135,10 +135,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
 
-    private AudioSource trap;
-
-    [SerializeField]
-
     private AudioSource checkpoint;
 
     public bool AlreadyPlayed = false;
@@ -309,8 +305,6 @@ public class PlayerController : MonoBehaviour
             GameLevelManager.Respawn();
 
             Damage(1);
-
-            trap.Play();
         }
 
         if (collision.tag == "Checkpoint")
