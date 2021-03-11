@@ -316,7 +316,7 @@ public class PlayerController : MonoBehaviour
                 checkpoint.Play();
 
                 AlreadyPlayed = true;
-            }           
+            }
         }
     }
 

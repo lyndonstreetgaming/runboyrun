@@ -8,6 +8,10 @@ public class CheckpointController : MonoBehaviour
 
     private Animator CheckpointAnimationController;
 
+    [SerializeField]
+
+    private AudioClip CheckpointTrigger;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
