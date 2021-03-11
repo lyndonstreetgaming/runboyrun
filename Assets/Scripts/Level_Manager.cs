@@ -21,8 +21,6 @@ public class Level_Manager : MonoBehaviour
     {
         StartCoroutine("RespawnCoroutine");
 
-        GamePlayer.Damage(1);
-
         Trap.Play();
 
     }
