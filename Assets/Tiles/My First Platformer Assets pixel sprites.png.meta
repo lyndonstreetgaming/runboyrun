@@ -1586,7 +1586,7 @@ TextureImporter:
         width: 118
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1607,7 +1607,7 @@ TextureImporter:
         width: 13
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1615,6 +1615,69 @@ TextureImporter:
       bones: []
       spriteID: d1c9c9e4719968220800000000000000
       internalID: 2487844169550961693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: My First Platformer Assets pixel sprites_5
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 58
+        width: 54
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efb33eabb6b7317e0800000000000000
+      internalID: -1795956123763524610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: My First Platformer Assets pixel sprites_6
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 37
+        width: 55
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cea449408b1d9a390800000000000000
+      internalID: -7806477890789029140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: My First Platformer Assets pixel sprites_7
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 16
+        width: 55
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 004c20971995f09f0800000000000000
+      internalID: -500082552279481344
       vertices: []
       indices: 
       edges: []
