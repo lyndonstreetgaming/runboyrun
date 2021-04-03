@@ -5225,7 +5225,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1251250216}
+      - m_Target: {fileID: 0}
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -5511,8 +5511,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 227.98999, y: -1.345993}
-  m_SizeDelta: {x: 205.45975, y: 43.386993}
+  m_AnchoredPosition: {x: 268.4, y: -1.345993}
+  m_SizeDelta: {x: 286.2403, y: 43.386993}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &769012878
 MonoBehaviour:
@@ -5563,9 +5563,11 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: NORMAL
+    - m_Text: 600 x 400
       m_Image: {fileID: 0}
-    - m_Text: HARD
+    - m_Text: 1024 x 800
+      m_Image: {fileID: 0}
+    - m_Text: 1420 x 960
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7418,6 +7420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae4eec427639ae4189c27f2e3596438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropdown: {fileID: 0}
 --- !u!1 &1275960733
 GameObject:
   m_ObjectHideFlags: 0
@@ -8335,7 +8338,18 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: Mute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &1631122605
 GameObject:
@@ -8911,7 +8925,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1729720819}
   m_Layer: 5
-  m_Name: Screen Resolution Dropdown
+  m_Name: ScreenResolutionDropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9095,7 +9109,18 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: FullScreen
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &1781178153
 GameObject:
@@ -9553,7 +9578,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NORMAL
+  m_text: 600 x 400
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a8bf4f1059f3f184fbf483e64426a52a, type: 2}
   m_sharedMaterial: {fileID: 6369615197100269811, guid: a8bf4f1059f3f184fbf483e64426a52a,
@@ -9787,7 +9812,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1251250216}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
