@@ -1,40 +1,51 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using TMPro;
 
 public class Main_Menu : MonoBehaviour
 {
     private bool IsMuted;
 
-    public Dropdown dropdown;
+    public TMP_Dropdown ScreenResolutionDropdown;
 
-    Resolution[] resolution;
+    Resolution[] Resolutions;
 
-    private void Start()
+    void Start()
     {
         IsMuted = PlayerPrefs.GetInt("Muted") == 1;
 
         AudioListener.pause = IsMuted;
 
-        resolution = Screen.resolutions;
+        Resolutions = Screen.resolutions.Select(resolution => new Resolution { width = resolution.width, height = resolution.height }).Distinct().ToArray();
 
-        dropdown.ClearOptions();
+        ScreenResolutionDropdown.ClearOptions();
 
         List<string> Options = new List<string>();
 
-        for (int i = 0; i < resolution.Length; i++)
+        int CurrentResolutionIndex = 0;
+
+        for (int i = 0; i < Resolutions.Length; i++)
         {
-            string Option = resolution[i].width + " x " + resolution[i].height;
+            string Option = Resolutions[i].width + " x " + Resolutions[i].width;
 
             Options.Add(Option);
 
+            if (Resolutions[i].width == Screen.width && Resolutions[i].height == Screen.height)
+            {
+                CurrentResolutionIndex = i;
+            }
         }
 
-        dropdown.AddOptions(Options);
+        ScreenResolutionDropdown.AddOptions(Options);
 
+        ScreenResolutionDropdown.value = CurrentResolutionIndex;
+
+        ScreenResolutionDropdown.RefreshShownValue();
     }
 
     public void Play()
@@ -47,6 +58,18 @@ public class Main_Menu : MonoBehaviour
         Debug.Log("QUIT!");
 
         Application.Quit();
+    }
+
+    public void SetQuality(int QualityIndex)
+    {
+        QualitySettings.SetQualityLevel(QualityIndex);
+    }
+
+    public void SetResolution (int ResolutionIndex)
+    {
+        Resolution Resolution = Resolutions[ResolutionIndex];
+
+        Screen.SetResolution(Resolution.width, Resolution.height, Screen.fullScreen);
     }
 
     public void FullScreen(bool IsFullScreen)
