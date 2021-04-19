@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 26206818}
   - component: {fileID: 26206817}
   - component: {fileID: 26206816}
+  - component: {fileID: 26206819}
   m_Layer: 5
   m_Name: Exit Button
   m_TagString: Untagged
@@ -268,6 +269,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26206814}
   m_CullTransparentMesh: 0
+--- !u!225 &26206819
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26206814}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &33128248
 GameObject:
   m_ObjectHideFlags: 0
@@ -2739,7 +2752,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &140849507
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2971,6 +2984,7 @@ GameObject:
   - component: {fileID: 194309384}
   - component: {fileID: 194309383}
   - component: {fileID: 194309382}
+  - component: {fileID: 194309385}
   m_Layer: 5
   m_Name: Exit Button
   m_TagString: Untagged
@@ -3104,6 +3118,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194309380}
   m_CullTransparentMesh: 0
+--- !u!225 &194309385
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194309380}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &200822766
 GameObject:
   m_ObjectHideFlags: 0
@@ -3409,6 +3435,7 @@ GameObject:
   - component: {fileID: 224798843}
   - component: {fileID: 224798842}
   - component: {fileID: 224798841}
+  - component: {fileID: 224798844}
   m_Layer: 5
   m_Name: Password Input Field
   m_TagString: Untagged
@@ -3572,6 +3599,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 224798839}
   m_CullTransparentMesh: 0
+--- !u!225 &224798844
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224798839}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &228728989
 GameObject:
   m_ObjectHideFlags: 0
@@ -4352,6 +4391,7 @@ GameObject:
   - component: {fileID: 482728423}
   - component: {fileID: 482728422}
   - component: {fileID: 482728421}
+  - component: {fileID: 482728424}
   m_Layer: 5
   m_Name: Password Button
   m_TagString: Untagged
@@ -4485,6 +4525,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 482728419}
   m_CullTransparentMesh: 0
+--- !u!225 &482728424
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482728419}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &512841702
 GameObject:
   m_ObjectHideFlags: 0
@@ -4869,6 +4921,7 @@ GameObject:
   - component: {fileID: 622244012}
   - component: {fileID: 622244014}
   - component: {fileID: 622244013}
+  - component: {fileID: 622244015}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -4933,6 +4986,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622244011}
   m_CullTransparentMesh: 0
+--- !u!225 &622244015
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622244011}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &627585633
 GameObject:
   m_ObjectHideFlags: 0
@@ -5286,6 +5351,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 709239507}
+  - component: {fileID: 709239508}
   m_Layer: 5
   m_Name: Screen Quality Dropdown
   m_TagString: Untagged
@@ -5314,6 +5380,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -5}
   m_SizeDelta: {x: 581.7606, y: 46.079758}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &709239508
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709239506}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &725485696
 GameObject:
   m_ObjectHideFlags: 0
@@ -7860,7 +7938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1251250215
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8769,6 +8847,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1615867298}
   - component: {fileID: 1615867299}
+  - component: {fileID: 1615867300}
   m_Layer: 5
   m_Name: Sound Toggle
   m_TagString: Untagged
@@ -8857,6 +8936,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
+--- !u!225 &1615867300
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615867297}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1631122605
 GameObject:
   m_ObjectHideFlags: 0
@@ -9318,6 +9409,7 @@ GameObject:
   - component: {fileID: 1708590962}
   - component: {fileID: 1708590961}
   - component: {fileID: 1708590960}
+  - component: {fileID: 1708590963}
   m_Layer: 5
   m_Name: Submit Button
   m_TagString: Untagged
@@ -9439,6 +9531,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708590958}
   m_CullTransparentMesh: 0
+--- !u!225 &1708590963
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708590958}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1710362891
 GameObject:
   m_ObjectHideFlags: 0
@@ -9556,6 +9660,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1729720819}
+  - component: {fileID: 1729720820}
   m_Layer: 5
   m_Name: Screen Resolution Dropdown
   m_TagString: Untagged
@@ -9584,6 +9689,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -75}
   m_SizeDelta: {x: 657.4945, y: 46.079758}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1729720820
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729720818}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1731364876
 GameObject:
   m_ObjectHideFlags: 0
@@ -9669,6 +9786,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1775484562}
   - component: {fileID: 1775484563}
+  - component: {fileID: 1775484564}
   m_Layer: 5
   m_Name: Fullscreen Toggle
   m_TagString: Untagged
@@ -9757,6 +9875,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
+--- !u!225 &1775484564
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775484561}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1781178153
 GameObject:
   m_ObjectHideFlags: 0
@@ -10133,6 +10263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1809208516}
   - component: {fileID: 1809208517}
+  - component: {fileID: 1809208518}
   m_Layer: 5
   m_Name: 'Password Menu '
   m_TagString: Untagged
@@ -10180,6 +10311,25 @@ MonoBehaviour:
   UserInput: {fileID: 224798841}
   userinput: 
   PasswordIncorerctPrompt: {fileID: 2068830448}
+--- !u!95 &1809208518
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809208515}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0bed1d01c1da9af4e89f9ab45aebd50b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1810006387
 GameObject:
   m_ObjectHideFlags: 0
