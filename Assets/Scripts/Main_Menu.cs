@@ -15,6 +15,8 @@ public class Main_Menu : MonoBehaviour
 
     Resolution[] Resolutions;
 
+    private bool IsPlaying;
+
     void Start()
     {
         IsMuted = PlayerPrefs.GetInt("Muted") == 1;
