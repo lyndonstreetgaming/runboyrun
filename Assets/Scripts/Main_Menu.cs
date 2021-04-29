@@ -15,6 +15,10 @@ public class Main_Menu : MonoBehaviour
 
     Resolution[] Resolutions;
 
+    public Scene_Fader SceneFader;
+
+    public string FirstLevel = "Level 1 - Stage 1";
+
     void Start()
     {
         IsMuted = PlayerPrefs.GetInt("Muted") == 1;
@@ -50,7 +54,7 @@ public class Main_Menu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("Level 1 - Stage 1"); 
+        SceneFader.FadeTo(FirstLevel); 
     }
 
     public void Quit()
