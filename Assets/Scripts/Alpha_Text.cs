@@ -14,6 +14,7 @@ public class Alpha_Text : MonoBehaviour
     private void Start()
     {
         TextComponent = GetComponent<TMP_Text>();
+
     }
 
     void Update()
