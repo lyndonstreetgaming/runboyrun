@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ControlScene : MonoBehaviour
-{
+{ 
     public void Update()
     {
         if (Input.anyKeyDown)
