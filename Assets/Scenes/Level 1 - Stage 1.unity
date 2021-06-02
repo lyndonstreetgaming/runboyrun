@@ -3890,6 +3890,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player UI
       objectReference: {fileID: 0}
+    - target: {fileID: 1039506395478690656, guid: 2002ff27312cba1488050c4845025fb9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2002ff27312cba1488050c4845025fb9, type: 3}
 --- !u!1001 &737812441
@@ -54959,7 +54964,7 @@ PrefabInstance:
     - target: {fileID: 8617735414931856430, guid: 077175f2fc8c8fd41a65797fc1afe3da,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8617735414931856431, guid: 077175f2fc8c8fd41a65797fc1afe3da,
         type: 3}
