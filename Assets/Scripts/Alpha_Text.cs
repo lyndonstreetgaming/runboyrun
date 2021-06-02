@@ -19,7 +19,7 @@ public class Alpha_Text : MonoBehaviour
 
     void Update()
     {
-        Count += FadeSpeed * Time.deltaTime;
+        Count += FadeSpeed * Time.unscaledDeltaTime;
 
         TextComponent.color = new Color(1f, 1f, 1f, Mathf.Sin(Count) * 1f);
 

@@ -222,11 +222,13 @@ public class PlayerController : MonoBehaviour
 
         TimerText.text = minutes + ":" + seconds;
 
-        if (t >= 59)
+        if (t == 59)
         {
+            t -= 59;
+
             minutes = minutes + 1;
 
-            t -= 59;
+            
         }
     }
 
