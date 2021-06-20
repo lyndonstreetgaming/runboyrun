@@ -14,6 +14,12 @@ public class PlayerController : MonoBehaviour
 
     private Animator PlayerAnimation;
 
+    public GameObject GameOverUI;
+
+    public GameObject Player;
+
+    public GameObject PlayerUI;
+
     //FSM
     private enum State { Idle, Running, Jumping, Falling, Hurt, Climbing }
 
@@ -147,6 +153,8 @@ public class PlayerController : MonoBehaviour
 
     public Level_Manager GameLevelManager;
 
+    public static bool IsGameOver = false;
+
     private void Start()
     {
         RigidBody = GetComponent<Rigidbody2D>();
@@ -166,6 +174,8 @@ public class PlayerController : MonoBehaviour
         RespawnPoint = transform.position;
 
         GameLevelManager = FindObjectOfType<Level_Manager>();
+
+        IsGameOver = false;
 
     }
 
@@ -189,6 +199,11 @@ public class PlayerController : MonoBehaviour
         InGameTimer();
 
         ExtraLives();
+
+        if (IsGameOver)
+        {
+            return;
+        }
     }
 
     private void ExtraLives()
@@ -414,7 +429,7 @@ public class PlayerController : MonoBehaviour
 
         if (Lives <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Death();
         }
     }
 
@@ -439,7 +454,7 @@ public class PlayerController : MonoBehaviour
 
         if (Lives <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Death();
         }
     }
 
@@ -601,7 +616,9 @@ public class PlayerController : MonoBehaviour
 
     private void Death()
     {
-        Debug.Log("Working");
+        IsGameOver = true;
+
+        GameOverUI.SetActive(true);
     }
 
     public void Damage(int damage)
@@ -614,7 +631,7 @@ public class PlayerController : MonoBehaviour
 
         if (Lives <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Death();
         }
 
     }
