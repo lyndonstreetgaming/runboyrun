@@ -11,11 +11,7 @@ public class Stage_Announcement : MonoBehaviour
 
     private void Start()
     {
-        Announcement_UI.SetActive(true);
-
-        Player_UI.SetActive(false);
-
-        Time.timeScale = 0f;
+        Disabled();
     }
 
     private void Update()
@@ -33,5 +29,14 @@ public class Stage_Announcement : MonoBehaviour
         Player_UI.SetActive(true);
 
         Time.timeScale = 1f;
+    }
+
+    public void Disabled()
+    {
+        Announcement_UI.SetActive(true);
+
+        Player_UI.SetActive(false);
+
+        Time.timeScale = 0f;
     }
 }

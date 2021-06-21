@@ -155,6 +155,8 @@ public class PlayerController : MonoBehaviour
 
     public static bool IsGameOver = false;
 
+    public Stage_Announcement Announcement;
+
     private void Start()
     {
         RigidBody = GetComponent<Rigidbody2D>();
@@ -177,6 +179,7 @@ public class PlayerController : MonoBehaviour
 
         IsGameOver = false;
 
+        Announcement = FindObjectOfType<Stage_Announcement>();
     }
 
     private void Update()
@@ -416,6 +419,13 @@ public class PlayerController : MonoBehaviour
 
         if (Score <= 0)
         {
+            Announcement.Disabled();
+
+            if (Input.anyKeyDown)
+            {
+                Announcement.Enabled();
+            }
+
             Lives -= 1;
 
             LivesText.text = Lives.ToString();
@@ -441,6 +451,13 @@ public class PlayerController : MonoBehaviour
 
         if (Score <= 0)
         {
+            Announcement.Disabled();
+
+            if (Input.anyKeyDown)
+            {
+                Announcement.Enabled();
+            }
+
             Lives -= 1;
 
             LivesText.text = Lives.ToString();
@@ -616,6 +633,8 @@ public class PlayerController : MonoBehaviour
 
     private void Death()
     {
+        Announcement.Enabled();
+
         IsGameOver = true;
 
         GameOverUI.SetActive(true);
@@ -626,6 +645,13 @@ public class PlayerController : MonoBehaviour
         Lives -= damage;
 
         LivesText.text = Lives.ToString();
+
+        Announcement.Disabled();
+
+        if (Input.anyKeyDown)
+        {
+            Announcement.Enabled();
+        }
 
         transform.position = RespawnPoint;
 
