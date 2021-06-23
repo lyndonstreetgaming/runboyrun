@@ -2431,7 +2431,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 2.8930817, y: 1}
+    m_SensorSize: {x: 2.781155, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2650,7 +2650,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 25}
-  m_SizeDelta: {x: 889.5332, y: 50}
+  m_SizeDelta: {x: 953.03613, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &245012465
 MonoBehaviour:
@@ -2671,7 +2671,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\xA9 Hibiscus Software Foundation. 2021"
+  m_text: "\xA9 Lyndon Street Software Company. 2021"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 417e22a5da422974584159814ffe94ec, type: 2}
   m_sharedMaterial: {fileID: 1315165763699503692, guid: 417e22a5da422974584159814ffe94ec,
