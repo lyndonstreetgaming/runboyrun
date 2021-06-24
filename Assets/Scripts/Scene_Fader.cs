@@ -30,7 +30,7 @@ public class Scene_Fader : MonoBehaviour
 
             float a = animationCurve.Evaluate(t);
 
-            image.color = new Color(0f, 0f, 0f, t);
+            image.color = new Color(0f, 0f, 0f, a);
 
             yield return 0;
         }
@@ -46,7 +46,7 @@ public class Scene_Fader : MonoBehaviour
 
             float a = animationCurve.Evaluate(t);
 
-            image.color = new Color(0f, 0f, 0f, t);
+            image.color = new Color(0f, 0f, 0f, a);
 
             yield return 0;
         }
