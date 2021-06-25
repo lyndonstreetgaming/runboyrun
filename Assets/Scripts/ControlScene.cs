@@ -4,17 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ControlScene : MonoBehaviour
-{ 
+{
     public void Update()
     {
         if (Input.anyKeyDown)
         {
             LoadScene();
         }
-    }
 
-    void LoadScene()
-    {
-        SceneManager.LoadScene("Main Menu");
+        void LoadScene()
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
     }
 }

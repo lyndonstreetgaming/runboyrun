@@ -14,10 +14,27 @@ public class Game_Over : MonoBehaviour
 
     private AudioSource GameOver;
 
+    [SerializeField]
+
+    private float LoadingDelay = 15f;
+
+    [SerializeField]
+
+    private float TimeElasped;
+
+    public Level_Changer level_changer;
+
     private void Update()
     {
         Player.SetActive(false);
 
         PlayerUI.SetActive(false);
+
+        TimeElasped += Time.deltaTime;
+
+        if (TimeElasped > LoadingDelay)
+        {
+            level_changer.FadeTo((int)Scene_Indexes.Main_Menu, LoadSceneMode.Single);
+        }
     }
 }

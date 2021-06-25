@@ -15,6 +15,8 @@ public class Main_Menu : MonoBehaviour
 
     Resolution[] Resolutions;
 
+    public Level_Changer level_changer;
+
     void Start()
     {
         IsMuted = PlayerPrefs.GetInt("Muted") == 1;
@@ -50,7 +52,7 @@ public class Main_Menu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene((int)Scene_Indexes.Level1_Stage1, LoadSceneMode.Single);
+        level_changer.FadeTo((int)Scene_Indexes.Level1_Stage1, LoadSceneMode.Single);
     }
 
     public void Quit()

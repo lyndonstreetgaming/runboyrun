@@ -15,13 +15,15 @@ public class PasswordManager : MonoBehaviour
 
     public GameObject PasswordIncorerctPrompt;
 
+    public Level_Changer Level_Changer;
+
     public void PasswordChecker()
     {
         userinput = UserInput.text;
 
         if (userinput == password[0])
         {
-            SceneManager.LoadScene("Level 1 - Stage 1");
+            Level_Changer.FadeTo((int)Scene_Indexes.Level1_Stage1, LoadSceneMode.Single);
         }
 
         else if (userinput == password[1])
