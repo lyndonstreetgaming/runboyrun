@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
 
-    private int Score = 2000;
+    static private int Score = 2000;
 
     [SerializeField]
 
@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
 
-    private int Lives;
+    static private int Lives;
 
     [SerializeField]
 
