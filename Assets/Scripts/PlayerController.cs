@@ -75,8 +75,6 @@ public class PlayerController : MonoBehaviour
 
     private TextMeshProUGUI TimerText;
 
-    [SerializeField]
-
     static private int Score = 2000;
 
     [SerializeField]
@@ -89,7 +87,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
 
-    static private int Lives;
+    static private int Lives = 3;
 
     [SerializeField]
 
