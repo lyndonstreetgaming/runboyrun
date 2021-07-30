@@ -3220,7 +3220,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.6312437, y: 5.3599987, z: -10}
+  m_LocalPosition: {x: 4.4010878, y: 5.3599987, z: -10}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3996,7 +3996,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.7867868, y: 1}
+    m_SensorSize: {x: 2.9150944, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -6031,7 +6031,7 @@ PrefabInstance:
     - target: {fileID: 6330584535550877049, guid: aff74ef5bf3bd3d458b0004d1028f33f,
         type: 3}
       propertyPath: m_Name
-      value: Checkpoint (1)
+      value: 'Checkpoint '
       objectReference: {fileID: 0}
     - target: {fileID: 6330584535550877051, guid: aff74ef5bf3bd3d458b0004d1028f33f,
         type: 3}
@@ -8262,6 +8262,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pause_UI: {fileID: 289353226}
+--- !u!114 &1605499283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605499280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0ed3ba18dc4274c88a5b60b8b5ee8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreText: {fileID: 1560487269}
+  TimeBonusText: {fileID: 1066987660}
+  CoinBonusText: {fileID: 664112546}
+  playercontroller: {fileID: 83362678}
 --- !u!1 &1615072638
 GameObject:
   m_ObjectHideFlags: 0
@@ -13875,6 +13891,16 @@ PrefabInstance:
     - target: {fileID: 7171238312382326823, guid: 267006f8d094a6c4ea6fddded3b8f992,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171238313189343248, guid: 267006f8d094a6c4ea6fddded3b8f992,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7171238313189343248, guid: 267006f8d094a6c4ea6fddded3b8f992,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7171238313189343255, guid: 267006f8d094a6c4ea6fddded3b8f992,

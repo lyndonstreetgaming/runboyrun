@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
     private TextMeshProUGUI TimerText;
 
-    static private int Score = 2000;
+    static public int Score = 2000;
 
     [SerializeField]
 
@@ -154,6 +154,10 @@ public class PlayerController : MonoBehaviour
     public static bool IsGameOver = false;
 
     public Stage_Announcement Announcement;
+
+    public static int TimeBonusScore;
+
+    public static int CoinBonusScore;
 
     private void Start()
     {
@@ -244,7 +248,7 @@ public class PlayerController : MonoBehaviour
 
             minutes = minutes + 1;
 
-            
+
         }
     }
 
@@ -672,6 +676,54 @@ public class PlayerController : MonoBehaviour
         }
 
         yield return 0;
+    }
+
+    public void TimeBonuses()
+    {
+        if (t <= 29)
+        {
+            TimeBonusScore = 50000;
+        }
+
+        else if (t >= 30 || t <= 44)
+        {
+            TimeBonusScore = 25000;
+        }
+
+        else if (t >= 45 || t <= 59)
+        {
+            TimeBonusScore = 10000;
+        }
+
+        else if (minutes == "1" || (minutes == "1" && t <= 59))
+        {
+            TimeBonusScore = 5000;
+        }
+
+        else if (minutes == "2" || (minutes == "2" && t <= 59))
+        {
+            TimeBonusScore = 2500;
+        }
+
+        else if (minutes == "3" || (minutes == "3" && t <= 59))
+        {
+            TimeBonusScore = 1000;
+        }
+
+        else if (minutes == "4" || (minutes == "4" && t <= 59))
+        {
+            TimeBonusScore = 500;
+        }
+
+        else
+        {
+            TimeBonusScore = 0;
+        }
+    }
+
+    public void CoinBonuses()
+    {
+        CoinBonusScore = Coins * 100;
     }
 }
 
