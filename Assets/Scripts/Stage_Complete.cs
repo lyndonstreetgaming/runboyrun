@@ -11,13 +11,6 @@ public class Stage_Complete : MonoBehaviour
     public TextMeshProUGUI TimeBonusText;
 
     public TextMeshProUGUI CoinBonusText;
-    
-    public PlayerController playercontroller;
-
-    private void Start()
-    {
-        playercontroller = FindObjectOfType<PlayerController>();
-    }
 
     private void OnEnable()
     { 
@@ -38,17 +31,25 @@ public class Stage_Complete : MonoBehaviour
 
         CoinBonusText.text = CoinBonus.ToString();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
-        while (PlayerController.TimeBonusScore != 0)
+        while (TimeBonus != 0 && CoinBonus != 0)
         {
-            PlayerController.TimeBonusScore = PlayerController.TimeBonusScore - 10;
+            TimeBonus = TimeBonus - 10;
+
+            CoinBonus = CoinBonus - 10;
 
             TimeBonusText.text = TimeBonus.ToString();
+
+            CoinBonusText.text = CoinBonus.ToString();
+
+            PlayerController.Score = PlayerController.Score + PlayerController.TimeBonusScore + PlayerController.CoinBonusScore;
         }
 
         while (Score < PlayerController.Score)
         {
+            yield return new WaitForSeconds(1f);
+
             Score = Score + 10;
 
             ScoreText.text = Score.ToString();
