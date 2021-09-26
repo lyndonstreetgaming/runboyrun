@@ -75,11 +75,7 @@ public class PlayerController : MonoBehaviour
 
     private TextMeshProUGUI TimerText;
 
-    static public int Score = 2000;
-
-    [SerializeField]
-
-    private TextMeshProUGUI ScoreText;
+    public TextMeshProUGUI ScoreText;
 
     [SerializeField]
 
@@ -87,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
 
-    static private int Lives = 3;
+    private static int Lives = 3;
 
     [SerializeField]
 
@@ -96,6 +92,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
 
     private float t;
+
+    [SerializeField]
+
+    private float tcount;
 
     [SerializeField]
 
@@ -140,6 +140,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
 
     private AudioSource checkpoint;
+  
+    public static int Score = 2000;
+
+    public static int TimeBonus = 0;
+
+    public static int CoinBonus = 0;
 
     public bool AlreadyPlayed = false;
 
@@ -154,10 +160,6 @@ public class PlayerController : MonoBehaviour
     public static bool IsGameOver = false;
 
     public Stage_Announcement Announcement;
-
-    public static int TimeBonusScore;
-
-    public static int CoinBonusScore;
 
     private void Start()
     {
@@ -236,6 +238,8 @@ public class PlayerController : MonoBehaviour
     {
         t = Time.time - Timer;
 
+        tcount = Time.time - Timer;
+
         minutes = ((int)t / 60).ToString("0");
 
         seconds = (t % 60).ToString("00");
@@ -247,8 +251,6 @@ public class PlayerController : MonoBehaviour
             t -= 59;
 
             minutes = minutes + 1;
-
-
         }
     }
 
@@ -640,6 +642,10 @@ public class PlayerController : MonoBehaviour
         IsGameOver = true;
 
         GameOverUI.SetActive(true);
+
+        Lives = 3;
+
+        Score = 2000;
     }
 
     public void Damage(int damage)
@@ -680,51 +686,57 @@ public class PlayerController : MonoBehaviour
 
     public void TimeBonuses()
     {
-        if (t <= 29)
+        if (tcount <= 29)
         {
-            TimeBonusScore = 50000;
+            TimeBonus += 50000;
         }
 
-        else if (t >= 30 || t <= 44)
+        else if (tcount >= 30 && tcount <= 44)
         {
-            TimeBonusScore = 25000;
+            TimeBonus += 25000;
         }
 
-        else if (t >= 45 || t <= 59)
+        else if (tcount >= 45 && tcount <= 59)
         {
-            TimeBonusScore = 10000;
+            TimeBonus += 10000;
         }
 
-        else if (minutes == "1" || (minutes == "1" && t <= 59))
+        else if (tcount >= 60 && tcount <= 119)
         {
-            TimeBonusScore = 5000;
+            TimeBonus += 5000;
         }
 
-        else if (minutes == "2" || (minutes == "2" && t <= 59))
+        else if (tcount >= 120 && tcount <= 179)
         {
-            TimeBonusScore = 2500;
+            TimeBonus += 2500;
         }
 
-        else if (minutes == "3" || (minutes == "3" && t <= 59))
+        else if (tcount >= 180 && tcount <= 239)
         {
-            TimeBonusScore = 1000;
+            TimeBonus += 1000;
         }
 
-        else if (minutes == "4" || (minutes == "4" && t <= 59))
+        else if (tcount >= 240 && tcount <= 299)
         {
-            TimeBonusScore = 500;
+            TimeBonus += 500;
         }
 
         else
         {
-            TimeBonusScore = 0;
+            TimeBonus += 0;
         }
     }
 
     public void CoinBonuses()
     {
-        CoinBonusScore = Coins * 100;
+        CoinBonus = CoinBonus + (Coins * 100);
     }
+   
 }
+
+
+
+
+   
 
 

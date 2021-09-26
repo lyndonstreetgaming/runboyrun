@@ -14,6 +14,7 @@ TagManager:
   - Trap
   - Obstruction
   - Checkpoint
+  - End_Checkpoint
   layers:
   - Default
   - TransparentFX

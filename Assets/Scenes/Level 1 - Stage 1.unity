@@ -2251,6 +2251,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2012614659}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &345269333 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5036675149941153197, guid: b6355b67c52de214a8f00a6b052f6bbe,
+    type: 3}
+  m_PrefabInstance: {fileID: 5036675150354444299}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &348686993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2686,6 +2692,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &430574589 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 491336990594325032, guid: 7524917dba5e8f6419b8cde81ba39a82,
+    type: 3}
+  m_PrefabInstance: {fileID: 491336989839294285}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &432873961 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2526345095565828471, guid: 4fec6ce42f10b994cbd25f5ddc67c325,
@@ -3220,7 +3238,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.212409, y: 5.3599987, z: -10}
+  m_LocalPosition: {x: 4.2669897, y: 5.3599987, z: -10}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3746,7 +3764,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.8836477, y: 1}
+    m_SensorSize: {x: 2.8927445, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -6734,6 +6752,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 491336989839294285}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1398130824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398130818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc0687e19b881114e9ce7d21e004d2f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreText: {fileID: 430574589}
+  TimeBonusText: {fileID: 1066987660}
+  CoinBonusText: {fileID: 664112546}
+  playercontroller: {fileID: 83362678}
 --- !u!1001 &1413707957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7310,18 +7344,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 245787604}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1560487269 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 491336990594325032, guid: 7524917dba5e8f6419b8cde81ba39a82,
-    type: 3}
-  m_PrefabInstance: {fileID: 491336989839294285}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1566540413 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2526345095565828471, guid: 4fec6ce42f10b994cbd25f5ddc67c325,
@@ -7367,22 +7389,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pause_UI: {fileID: 289353226}
---- !u!114 &1605499283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1605499280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f0ed3ba18dc4274c88a5b60b8b5ee8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScoreText: {fileID: 1560487269}
-  TimeBonusText: {fileID: 1066987660}
-  CoinBonusText: {fileID: 664112546}
-  playercontroller: {fileID: 83362678}
 --- !u!1001 &1617925219
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10442,6 +10448,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stage Complete UI
       objectReference: {fileID: 0}
+    - target: {fileID: 491336990691997647, guid: 7524917dba5e8f6419b8cde81ba39a82,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7524917dba5e8f6419b8cde81ba39a82, type: 3}
 --- !u!1001 &2526345096247603024
@@ -10720,6 +10731,16 @@ PrefabInstance:
       propertyPath: lives_lost
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2638494077260762415, guid: d237a51ab52fe5a49ad206c1c0a0c878,
+        type: 3}
+      propertyPath: TimeBonusText
+      value: 
+      objectReference: {fileID: 1066987660}
+    - target: {fileID: 2638494077260762415, guid: d237a51ab52fe5a49ad206c1c0a0c878,
+        type: 3}
+      propertyPath: CoinBonusText
+      value: 
+      objectReference: {fileID: 664112546}
     - target: {fileID: 2638494077260762450, guid: d237a51ab52fe5a49ad206c1c0a0c878,
         type: 3}
       propertyPath: m_Name
@@ -10729,6 +10750,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638494077260762450, guid: d237a51ab52fe5a49ad206c1c0a0c878,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d237a51ab52fe5a49ad206c1c0a0c878, type: 3}
@@ -11229,10 +11255,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5036675149941153193, guid: b6355b67c52de214a8f00a6b052f6bbe,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5416662588262627885, guid: bdf460eeae01c184088e4aa6b1a0303f,
+        type: 3}
     - target: {fileID: 5036675149941153194, guid: b6355b67c52de214a8f00a6b052f6bbe,
         type: 3}
       propertyPath: m_Name
       value: End Checkpoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036675149941153194, guid: b6355b67c52de214a8f00a6b052f6bbe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036675149941153194, guid: b6355b67c52de214a8f00a6b052f6bbe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5036675149941153199, guid: b6355b67c52de214a8f00a6b052f6bbe,
         type: 3}
@@ -11244,6 +11286,16 @@ PrefabInstance:
       propertyPath: StageComplete_UI
       value: 
       objectReference: {fileID: 1398130818}
+    - target: {fileID: 5036675149941153199, guid: b6355b67c52de214a8f00a6b052f6bbe,
+        type: 3}
+      propertyPath: playercontroller
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036675149941153199, guid: b6355b67c52de214a8f00a6b052f6bbe,
+        type: 3}
+      propertyPath: DoorAnimationController
+      value: 
+      objectReference: {fileID: 345269333}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6355b67c52de214a8f00a6b052f6bbe, type: 3}
 --- !u!1001 &5589827319842528805

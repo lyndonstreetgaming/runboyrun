@@ -1,42 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Door : MonoBehaviour
 {
-    private Animator animator;
+    [SerializeField]
 
-    public GameObject Player;
+    private Animator DoorAnimationController;
 
-    public GameObject StageComplete_UI;
+    [SerializeField]
+
+    private GameObject Player;
+
+    [SerializeField]
+
+    private GameObject StageComplete_UI;
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        DoorAnimationController = GetComponent<Animator>();
+
+        DoorAnimationController.SetBool("Open", true);
+
+        StageComplete_UI.SetActive(false);
+
+        Time.timeScale = 1f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
-            StageComplete_UI.SetActive(false);
+            DoorAnimationController.SetBool("Open", false);
 
-            animator.SetBool("Open", true);
+            Player.SetActive(false);
 
-            StartCoroutine(ClosedDoor());
+            StageComplete_UI.SetActive(true);
+
+            Time.timeScale = 0f;
         }
-    }
-
-    IEnumerator ClosedDoor()
-    { 
-        yield return new WaitForSeconds(0.5f);
-
-        animator.SetBool("Open", false);
-
-        Time.timeScale = 0f;
-
-        Player.SetActive(false);
-
-        StageComplete_UI.SetActive(true);
     }
 }
