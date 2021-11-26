@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
 
     private AudioSource checkpoint;
-  
+
     public static int Score = 2000;
 
     public static int TimeBonus = 0;
@@ -158,6 +158,8 @@ public class PlayerController : MonoBehaviour
     public Level_Manager GameLevelManager;
 
     public static bool IsGameOver = false;
+
+    public bool IsDoorClosed = false;
 
     public Stage_Announcement Announcement;
 
@@ -329,6 +331,10 @@ public class PlayerController : MonoBehaviour
             GameLevelManager.Respawn();
 
             Damage(1);
+
+            JumpingForce = 18;
+
+            GetComponent<SpriteRenderer>().color = Color.white;
         }
 
         if (collision.tag == "Checkpoint")
@@ -341,6 +347,11 @@ public class PlayerController : MonoBehaviour
 
                 AlreadyPlayed = true;
             }
+        }
+
+        if (collision.tag == "End_Checkpoint")
+        {
+            IsDoorClosed = true;
         }
     }
 
@@ -731,7 +742,6 @@ public class PlayerController : MonoBehaviour
     {
         CoinBonus = CoinBonus + (Coins * 100);
     }
-   
 }
 
 

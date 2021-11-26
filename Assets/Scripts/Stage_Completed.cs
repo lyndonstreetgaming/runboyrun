@@ -64,8 +64,5 @@ public class Stage_Completed : MonoBehaviour
             yield return new WaitForSeconds(.03f);
         }
     }
-
 }
-
-
 

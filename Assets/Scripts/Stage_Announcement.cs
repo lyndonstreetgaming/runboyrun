@@ -24,19 +24,34 @@ public class Stage_Announcement : MonoBehaviour
 
     public void Enabled()
     {
-        Announcement_UI.SetActive(false);
-
-        Player_UI.SetActive(true);
-
-        Time.timeScale = 1f;
+        StartCoroutine("EnabledDelay");
     }
+
 
     public void Disabled()
     {
+
         Announcement_UI.SetActive(true);
 
         Player_UI.SetActive(false);
 
         Time.timeScale = 0f;
+    }
+
+    public IEnumerator EnabledDelay()
+    {
+        float PauseTime = Time.realtimeSinceStartup + 1f;
+
+        while (Time.realtimeSinceStartup < PauseTime)
+        {
+            yield return 0;
+        }
+
+        Announcement_UI.SetActive(false);
+
+        Player_UI.SetActive(true);
+
+        Time.timeScale = 1f;
+
     }
 }
