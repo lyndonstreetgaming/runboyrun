@@ -41,24 +41,29 @@ public class Seeker_Bot : Enemies
 
     private void Update()
     {
-        //Transition from Jump to Fall.
-        if (SeekerBotAnimation.GetBool("Jumping"))
+        if (!Pause_Menu.IsPaused)
         {
-            if (rb.velocity.y < .1)
+            //Transition from Jump to Fall.
+            if (SeekerBotAnimation.GetBool("Jumping"))
             {
-                SeekerBotAnimation.SetBool("Falling", true);
+                if (rb.velocity.y < .1)
+                {
+                    SeekerBotAnimation.SetBool("Falling", true);
 
-                SeekerBotAnimation.SetBool("Jumping", false);
+                    SeekerBotAnimation.SetBool("Jumping", false);
+                }
+            }
+
+            //Transition from Fall to Idle
+            if (Colliders.IsTouchingLayers(Ground) && SeekerBotAnimation.GetBool("Falling"))
+            {
+                SeekerBotAnimation.SetBool("Falling", false);
+
+
             }
         }
 
-        //Transition from Fall to Idle
-        if (Colliders.IsTouchingLayers(Ground) && SeekerBotAnimation.GetBool("Falling"))
-        {
-            SeekerBotAnimation.SetBool("Falling", false);
 
-
-        }
     }
 
     private void Movement()

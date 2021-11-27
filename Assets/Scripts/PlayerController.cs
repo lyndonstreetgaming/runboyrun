@@ -190,28 +190,31 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (state == State.Climbing)
+        if (!Pause_Menu.IsPaused)
         {
-            Climb();
-        }
+            if (state == State.Climbing)
+            {
+                Climb();
+            }
 
-        if (state != State.Hurt)
-        {
-            Directions();
-        }
+            if (state != State.Hurt)
+            {
+                Directions();
+            }
 
-        AnimationState();
+            AnimationState();
 
-        //Set animation based on Enumerator state and thing.
-        PlayerAnimation.SetInteger("state", (int)state);
+            //Set animation based on Enumerator state and thing.
+            PlayerAnimation.SetInteger("state", (int)state);
 
-        InGameTimer();
+            InGameTimer();
 
-        ExtraLives();
+            ExtraLives();
 
-        if (IsGameOver)
-        {
-            return;
+            if (IsGameOver)
+            {
+                return;
+            }
         }
     }
 

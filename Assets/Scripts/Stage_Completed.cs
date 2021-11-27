@@ -11,6 +11,8 @@ public class Stage_Completed : MonoBehaviour
 
     public TextMeshProUGUI CoinBonusText;
 
+    public TextMeshProUGUI PlayerUIScoreText;
+
     public PlayerController playercontroller;
 
     private void Start()
@@ -32,6 +34,8 @@ public class Stage_Completed : MonoBehaviour
         int Score = PlayerController.Score;
 
         ScoreText.text = Score.ToString();
+
+        PlayerUIScoreText.text = Score.ToString();
 
         int TimeBonus = PlayerController.TimeBonus;
 
@@ -60,6 +64,8 @@ public class Stage_Completed : MonoBehaviour
             CoinBonusText.text = CoinBonus.ToString();
 
             ScoreText.text = Score.ToString();
+
+            PlayerUIScoreText.text = Score.ToString();
 
             yield return new WaitForSeconds(.03f);
         }

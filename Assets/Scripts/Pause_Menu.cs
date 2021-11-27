@@ -6,26 +6,40 @@ public class Pause_Menu : MonoBehaviour
 {
     public GameObject Pause_UI;
 
+    public static bool IsPaused = false;
+
     private void Update()
     {
         if (Input.GetButtonDown("Pause"))
         {
-            Toggle();
+            if (IsPaused)
+            {
+                Resume();
+            }
+
+            else
+            {
+                Pause();
+            }
         }
     }
 
-    public void Toggle()
+    private void Resume()
     {
-        Pause_UI.SetActive(!Pause_UI.activeSelf);
+        Pause_UI.SetActive(false);
 
-        if (Pause_UI.activeSelf)
-        {
-            Time.timeScale = 0f;
-        }
+        Time.timeScale = 1;
 
-        else
-        {
-            Time.timeScale = 1f;
-        }
+        IsPaused = false;
     }
+
+    private void Pause()
+    {
+        Pause_UI.SetActive(true);
+
+        Time.timeScale = 0;
+
+        IsPaused = true;
+    }
+
 }

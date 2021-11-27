@@ -415,7 +415,6 @@ GameObject:
   - component: {fileID: 491336990691997640}
   - component: {fileID: 491336990691997641}
   - component: {fileID: 491336990691997642}
-  - component: {fileID: 1398130824}
   m_Layer: 5
   m_Name: Stage Complete UI
   m_TagString: Untagged
@@ -529,22 +528,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1398130824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 491336990691997647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da461ac356d9a754c880bd1a21c689fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScoreText: {fileID: 0}
-  TimeBonusText: {fileID: 491336990100918209}
-  CoinBonusText: {fileID: 491336990503269103}
-  playercontroller: {fileID: 0}
 --- !u!1 &491336990810579617
 GameObject:
   m_ObjectHideFlags: 0
