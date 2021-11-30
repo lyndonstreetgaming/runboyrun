@@ -141,6 +141,10 @@ public class PlayerController : MonoBehaviour
 
     private AudioSource checkpoint;
 
+    [SerializeField]
+
+    private AudioSource jump;
+
     public static int Score = 2000;
 
     public static int TimeBonus = 0;
@@ -360,48 +364,48 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+            if (other.gameObject.tag == "Enemy")
+
         {
-            Enemies enemies = other.gameObject.GetComponent<Enemies>();
+                Enemies enemies = other.gameObject.GetComponent<Enemies>();
 
-            if (state == State.Falling)
-            {
-                enemies.JumpedOn();
-
-                Jump();
-
-                Score += 500;
-
-                ScoreText.text = Score.ToString();
-            }
-
-            else
-            {
-                state = State.Hurt;
-
-                ScoreandHealthHandler();
-
-                if (other.gameObject.transform.position.x > transform.position.x)
+                if (state == State.Falling)
                 {
-                    //Enemy is to my right and I should be damage and move left
+                    enemies.JumpedOn();
 
-                    RigidBody.velocity = new Vector2(-HurtfulForce, RigidBody.velocity.y);
+                    Jump();
 
-                    hurt.Play();
+                    Score += 500;
+
+                    ScoreText.text = Score.ToString();
                 }
-
 
                 else
                 {
-                    //Enemy is to my left and I should be damage and move right
+                    state = State.Hurt;
 
-                    RigidBody.velocity = new Vector2(HurtfulForce, RigidBody.velocity.y);
+                    ScoreandHealthHandler();
 
-                    hurt.Play();
+                    if (other.gameObject.transform.position.x > transform.position.x)
+                    {
+                        //Enemy is to my right and I should be damage and move left
+
+                        RigidBody.velocity = new Vector2(-HurtfulForce, RigidBody.velocity.y);
+
+                        hurt.Play();
+                    }
+
+
+                    else
+                    {
+                        //Enemy is to my left and I should be damage and move right
+
+                        RigidBody.velocity = new Vector2(HurtfulForce, RigidBody.velocity.y);
+
+                        hurt.Play();
+                    }
                 }
             }
-
-        }
 
         if (other.gameObject.tag == "Obstruction")
         {
@@ -530,6 +534,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && Colliders.IsTouchingLayers(Ground))
         {
             Jump();
+
+            jump.Play();
         }
 
 

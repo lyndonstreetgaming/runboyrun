@@ -21,15 +21,15 @@ public class Enemies : MonoBehaviour
 
     public void JumpedOn()
     {
-        SeekerBotAnimation.SetTrigger("Death");
+            SeekerBotAnimation.SetTrigger("Death");
 
-        death.Play();
+            death.Play();
 
-        RigidBody.velocity = new Vector2(0, 0);
+            RigidBody.velocity = new Vector2(0, 0);
 
-        RigidBody.bodyType = RigidbodyType2D.Kinematic;
+            RigidBody.bodyType = RigidbodyType2D.Kinematic;
 
-        GetComponent<Collider2D>().enabled = false;
+            GetComponent<Collider2D>().enabled = false;
     }
 
     private void Death()

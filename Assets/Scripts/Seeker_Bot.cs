@@ -32,93 +32,94 @@ public class Seeker_Bot : Enemies
 
     protected override void Start()
     {
-        base.Start();
+            base.Start();
 
-        Colliders = GetComponent<Collider2D>();
+            Colliders = GetComponent<Collider2D>();
 
-        rb = GetComponent<Rigidbody2D>();
+            rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
         if (!Pause_Menu.IsPaused)
-        {
-            //Transition from Jump to Fall.
-            if (SeekerBotAnimation.GetBool("Jumping"))
-            {
-                if (rb.velocity.y < .1)
-                {
-                    SeekerBotAnimation.SetBool("Falling", true);
 
-                    SeekerBotAnimation.SetBool("Jumping", false);
-                }
-            }
-
+        { 
             //Transition from Fall to Idle
             if (Colliders.IsTouchingLayers(Ground) && SeekerBotAnimation.GetBool("Falling"))
             {
                 SeekerBotAnimation.SetBool("Falling", false);
-
-
             }
         }
 
+        //Transition from Jump to Fall.
+        if (SeekerBotAnimation.GetBool("Jumping"))
+        {
+            if (rb.velocity.y < .1)
+            {
+                SeekerBotAnimation.SetBool("Falling", true);
 
+                SeekerBotAnimation.SetBool("Jumping", false);
+            }
+        }
     }
 
     private void Movement()
     {
-        if (FacingLeft)
+        if (!Pause_Menu.IsPaused)
         {
-            //Test to see if we are beyond the Left Capture.
-            if (transform.position.x > LeftCapture)
+            if (FacingLeft)
             {
-                //Make sure sprite is facing the right location, and if it is not, then face the right direction.
-                if (transform.localScale.x != 1)
+                //Test to see if we are beyond the Left Capture.
+                if (transform.position.x > LeftCapture)
                 {
-                    transform.localScale = new Vector3(1, 1);
+                    //Make sure sprite is facing the right location, and if it is not, then face the right direction.
+                    if (transform.localScale.x != 1)
+                    {
+                        transform.localScale = new Vector3(1, 1);
+                    }
+
+                    //Test to see if Seeker Bot is on the ground, if so jump.
+                    if (Colliders.IsTouchingLayers(Ground))
+                    {
+                        //Jump, duh!
+                        rb.velocity = new Vector2(-JumpingLength, JumpingHeight);
+
+                        SeekerBotAnimation.SetBool("Jumping", true);
+                    }
                 }
 
-                //Test to see if Seeker Bot is on the ground, if so jump.
-                if (Colliders.IsTouchingLayers(Ground))
+                else
                 {
-                    //Jump, duh!
-                    rb.velocity = new Vector2(-JumpingLength, JumpingHeight);
-
-                    SeekerBotAnimation.SetBool("Jumping", true);
+                    FacingLeft = false;
                 }
             }
 
             else
             {
-                FacingLeft = false;
-            }
-        }
-
-        else
-        {
-            if (transform.position.x < RightCapture)
-            {
-                //Make sure sprite is facing the right location, and if it is not, then face the right direction.
-                if (transform.localScale.x != 1)
+                if (transform.position.x < RightCapture)
                 {
-                    transform.localScale = new Vector3(1, 1);
+                    //Make sure sprite is facing the right location, and if it is not, then face the right direction.
+                    if (transform.localScale.x != 1)
+                    {
+                        transform.localScale = new Vector3(1, 1);
+                    }
+
+                    //Test to see if Seeker Bot is on the ground, if so jump.
+                    if (Colliders.IsTouchingLayers(Ground))
+                    {
+                        //Jump, duh!
+                        rb.velocity = new Vector2(-JumpingLength, JumpingHeight);
+
+                        SeekerBotAnimation.SetBool("Jumping", true);
+                    }
                 }
 
-                //Test to see if Seeker Bot is on the ground, if so jump.
-                if (Colliders.IsTouchingLayers(Ground))
+                else
                 {
-                    //Jump, duh!
-                    rb.velocity = new Vector2(-JumpingLength, JumpingHeight);
-
-                    SeekerBotAnimation.SetBool("Jumping", true);
+                    FacingLeft = true;
                 }
-            }
-
-            else
-            {
-                FacingLeft = true;
             }
         }
     }
-}
+           
+}  

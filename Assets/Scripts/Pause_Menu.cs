@@ -28,18 +28,18 @@ public class Pause_Menu : MonoBehaviour
     {
         Pause_UI.SetActive(false);
 
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
 
         IsPaused = false;
     }
+
 
     private void Pause()
     {
         Pause_UI.SetActive(true);
 
-        Time.timeScale = 0;
+        Time.timeScale = 0f;
 
         IsPaused = true;
     }
-
 }
